@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garden of Growth 🌱</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f0fff0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        color: #2e8b57;
+        text-align: center;
+      }
+
+      .content {
+        display: flex;
+        gap: 40px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .left-panel,
+      .right-panel {
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px #ccc;
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .left-panel {
+        background-color: #ffffff;
+      }
+
+      .right-panel {
+        background-color: #d4edc9;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        height: 500px;
+      }
+
+      .progress {
+        margin-bottom: 20px;
+      }
+
+      .progress-bar {
+        background-color: #ddd;
+        width: 100%;
+        height: 20px;
+        border-radius: 10px;
+        margin-top: 5px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        background-color: #4caf50;
+        height: 100%;
+        width: 0%;
+        transition: width 0.3s;
+      }
+
+      .custom-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #f7fef7;
+        padding: 10px 15px;
+        border-radius: 10px;
+        margin: 10px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+        cursor: pointer;
+      }
+
+      .custom-checkbox:hover {
+        background-color: #e0f5e0;
+      }
+
+      .custom-checkbox input[type="checkbox"] {
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        background-color: white;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s, border 0.3s;
+      }
+
+      .custom-checkbox input[type="checkbox"]:checked {
+        background-color: #4caf50;
+      }
+
+      .custom-checkbox input[type="checkbox"]:checked::after {
+        content: "✓";
+        color: white;
+        position: absolute;
+        top: -2px;
+        left: 4px;
+        font-size: 14px;
+      }
+
+      .flower-area {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .rose {
+        position: absolute;
+        font-size: 48px;
+        transform: translate(-50%, -50%);
+        animation: grow 0.3s ease;
+      }
+
+      @keyframes grow {
+        0% {
+          transform: scale(0.5) translate(-50%, -50%);
+          opacity: 0;
+        }
+
+        100% {
+          transform: scale(1) translate(-50%, -50%);
+          opacity: 1;
+        }
+      }
+
+      #flower-options {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: #c4e9b5;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      .flower-choice {
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .flower-choice input {
+        margin-right: 5px;
+        transform: scale(1.2);
+        vertical-align: middle;
+      }
+
+      #flower-count {
+        font-weight: bold;
+        color: #1b5e20;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Garden of Growth</h1>
+      <div class="content">
+        <div class="left-panel">
+          <h2>Daily Activities</h2>
+          <div class="progress">
+            <span>Progress</span>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <span id="progress-text">0%</span>
+          </div>
+
+          <div class="section">
+            <h3>Mindfulness</h3>
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> Breathing Exercise</label
+            >
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> Meditation</label
+            >
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> Gratitude</label
+            >
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> Digital Detox</label
+            >
+          </div>
+
+          <div class="section">
+            <h3>Physical Wellbeing</h3>
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> Reading a Book</label
+            >
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> Gym Workout</label
+            >
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> 30-min Walk</label
+            >
+            <label class="custom-checkbox"
+              ><input type="checkbox" class="task" /> Hydration Goal (3L)</label
+            >
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <h2>🌿 Your Garden</h2>
+          <p><span id="flower-count">0</span> flowers grown</p>
+          <div class="flower-area" id="flower-area"></div>
+
+          <div id="flower-options">
+            <label class="flower-choice"
+              ><input type="radio" name="flower" value="🌹" checked />🌹</label
+            >
+            <label class="flower-choice"
+              ><input type="radio" name="flower" value="🌸" />🌸</label
+            >
+            <label class="flower-choice"
+              ><input type="radio" name="flower" value="🌼" />🌼</label
+            >
+            <label class="flower-choice"
+              ><input type="radio" name="flower" value="🌺" />🌺</label
+            >
+            <label class="flower-choice"
+              ><input type="radio" name="flower" value="🌻" />🌻</label
+            >
+            <label class="flower-choice"
+              ><input type="radio" name="flower" value="🌷" />🌷</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const tasks = document.querySelectorAll(".task");
+      const progressFill = document.getElementById("progress-fill");
+      const progressText = document.getElementById("progress-text");
+      const flowerCountText = document.getElementById("flower-count");
+      const flowerArea = document.getElementById("flower-area");
+      let selectedFlower = "🌹";
+
+      // Listen for flower selection change
+      document.querySelectorAll('input[name="flower"]').forEach((radio) => {
+        radio.addEventListener("change", () => {
+          selectedFlower = radio.value;
+          updateProgress();
+        });
+      });
+
+      // Listen for task checkbox changes
+      tasks.forEach((task) => task.addEventListener("change", updateProgress));
+
+      // Function to update progress visually and save it to backend
+      async function updateProgress() {
+        const username = localStorage.getItem("username");
+        const token = localStorage.getItem("token");
+
+        if (!username || !token) {
+          console.error("Username or token missing.");
+          return;
+        }
+
+        const total = tasks.length;
+        const completedTasks = [...tasks]
+          .filter((task) => task.checked)
+          .map((task) => task.parentElement.textContent.trim());
+
+        const completedCount = completedTasks.length;
+        const percent = Math.round((completedCount / total) * 100);
+
+        // Update progress bar and texts
+        progressFill.style.width = percent + "%";
+        progressText.textContent = percent + "%";
+        flowerCountText.textContent = completedCount;
+
+        // Clear previous flowers
+        flowerArea.innerHTML = "";
+        const radius = 100;
+        const centerX = flowerArea.offsetWidth / 2;
+        const centerY = flowerArea.offsetHeight / 2;
+
+        for (let i = 0; i < completedCount; i++) {
+          const angle = (i / completedCount) * 2 * Math.PI;
+          const x = centerX + radius * Math.cos(angle);
+          const y = centerY + radius * Math.sin(angle);
+
+          const flower = document.createElement("div");
+          flower.className = "rose";
+          flower.textContent = selectedFlower;
+          flower.style.position = "absolute";
+          flower.style.left = `${x}px`;
+          flower.style.top = `${y}px`;
+          flowerArea.appendChild(flower);
+        }
+
+        // Save progress to backend
+        try {
+          const res = await fetch(
+            `${window.location.origin}/MindCare/${username}/progress`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({ completedTasks, selectedFlower }),
+            }
+          );
+
+          if (!res.ok) {
+            console.error("Failed to save progress:", await res.text());
+          }
+        } catch (err) {
+          console.error("Error saving progress:", err);
+        }
+      }
+
+      // On page load, fetch saved progress and apply it
+      window.addEventListener("DOMContentLoaded", async () => {
+        const username = localStorage.getItem("username");
+        const token = localStorage.getItem("token");
+
+        if (!username || !token) {
+          console.error("Username or token missing.");
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            `${window.location.origin}/MindCare/${username}/progress`,
+            {
+              method: "GET",
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          );
+
+          if (!res.ok) {
+            console.error("Failed to fetch progress:", await res.text());
+            return;
+          }
+
+          const data = await res.json();
+
+          if (data && Array.isArray(data.completedTasks)) {
+            // Set checkboxes checked for completed tasks
+            tasks.forEach((task) => {
+              const taskName = task.parentElement.textContent.trim();
+              task.checked = data.completedTasks.includes(taskName);
+            });
+
+            // Set selected flower from saved data
+            if (data.selectedFlower) {
+              selectedFlower = data.selectedFlower;
+              document
+                .querySelectorAll('input[name="flower"]')
+                .forEach((radio) => {
+                  radio.checked = radio.value === selectedFlower;
+                });
+            }
+
+            // Update progress display now that data is loaded
+            updateProgress();
+          }
+        } catch (err) {
+          console.error("Error fetching progress:", err);
+        }
+      });
+    </script>
+    <script src="/MindCare/auth.js"></script>
+  </body>
+</html>

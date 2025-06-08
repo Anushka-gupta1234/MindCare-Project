@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Login & Create User</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+
+<div class="container" id="container">
+    <!-- Create User (Sign Up) Form -->
+    <div class="form-container sign-up-container">
+        <form id="signup-form" data-action="signup">
+            <h1>Create User</h1>
+            <input type="text" id="name" placeholder="Name" required />
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <p id="signup-error" class="error-message"></p>
+            <button type="submit">Create User</button>
+        </form>
+    </div>
+
+    <!-- Login Form -->
+    <div class="form-container sign-in-container">
+        <form id="login-form" data-action="login">
+            <h1>Login</h1>
+            <input type="text" id="login-username" placeholder="Username" required />
+            <input type="password" id="login-password" placeholder="Password" required />
+            <p id="login-error" class="error-message"></p>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>Unlock Your Path to Mental Wellness – Log in and Thrive! 💙🌿</p>
+                <button class="ghost" id="signIn">Login</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Create a New User</h1>
+                <p>Join MindCare Today – Your Journey to a Healthier Mind Starts Here! 🌿✨</p>
+                <button class="ghost" id="signUp">Create User</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+
+    // Signup form
+    document.getElementById("signup-form").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const errorElement = document.getElementById("signup-error");
+        errorElement.textContent = "";
+
+        try {
+            const response = await fetch("/MindCare/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, username, password })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                errorElement.textContent = data.msg || "Signup failed!";
+            } else {
+                // if (action === "signup") {
+                //     container.classList.remove("right-panel-active"); // Go to login view
+                // } else {
+                //     localStorage.setItem("username", data.username);
+                //     // Save token to localStorage
+                //     localStorage.setItem("token", data.token);
+                //     window.location.href = "/MindCare"; // Go to home page
+                // }
+                window.alert("User Created Successfully!🎉");
+                localStorage.setItem("token", data.token);
+                container.classList.remove("right-panel-active");
+            }
+
+        } catch (error) {
+            errorElement.textContent = "An error occurred. Please try again.";
+        }
+    });
+
+    // Login form
+    document.getElementById("login-form").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById("login-username").value;
+        const password = document.getElementById("login-password").value;
+        const errorElement = document.getElementById("login-error");
+        errorElement.textContent = "";
+
+        try {
+            const response = await fetch("/MindCare/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                errorElement.textContent = data.msg || "Login failed.";
+            } else {
+                localStorage.setItem("username", data.username);
+                localStorage.setItem("token", data.token); // Store the token
+                window.location.href = "/MindCare"; // Redirect after login
+            }
+        } catch (error) {
+            errorElement.textContent = "An error occurred. Please try again.";
+        }
+    });
+</script>
+
+<style>
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+</style>
+
+</body>
+</html>

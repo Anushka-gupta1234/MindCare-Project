@@ -1,0 +1,125 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0fdf4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #6bca8f, #0e920e);
+    color: white;
+    padding: 30px;
+    font-size: 1.5em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Bar */
+/* Search Bar */
+.search-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #23b955;
+    border-radius: 25px;
+    font-size: 1.2em;
+    outline: none;
+}
+
+#clearSearch {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    font-size: 1.4em;
+    cursor: pointer;
+    color: #888;
+}
+
+#clearSearch:hover {
+    color: black;
+}
+
+
+/* NGO List */
+.ngo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* NGO Card */
+.ngo-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    width: 300px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
+    overflow: hidden;
+}
+
+.ngo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ngo-card::after {
+    content: "→";
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #65a30d;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.ngo-card:hover::after {
+    opacity: 1;
+}
+
+/* Scroll Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Styling */
+h1 {
+    margin: 0;
+}
+
+h2 {
+    color: #4d7c0f;
+}
+
+p {
+    color: #444;
+    font-size: 1em;
+}

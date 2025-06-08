@@ -1,0 +1,68 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #4CAF50;
+    padding: 15px 24px;
+    text-align: center;
+    color: white;
+    height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+/* Back Button */
+.back-btn {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    /* font-weight: bold; */
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+/* Blog Details */
+.blog-details {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-details h2 {
+    color: #219225;
+    text-align: center;
+}
+
+.blog-details p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.author {
+    text-align: right;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 20px;
+    color: #888;
+    margin-top: 20px;
+}
+.blog-content {
+    white-space: pre-wrap; /* Preserves spaces and line breaks */
+    word-wrap: break-word; /* Prevents text overflow */
+}
+

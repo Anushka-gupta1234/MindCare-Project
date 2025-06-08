@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Safe Haven</h1>
+        <p>Find NGOs and connect with them for a better world.</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search NGOs..." onkeyup="filterNGOs()">
+        <button id="clearSearch" onclick="clearSearch()">✖</button>
+    </div>
+
+    <section class="ngo-list">
+        <div class="ngo-card fade-in" data-url="https://www.sangath.in/" data-tags="Mental-Health">
+            <div class="ngo-content">
+                <h2>Sangath</h2>
+                <p><strong>Location:</strong> India</p>
+                <p><strong>Contact:</strong> https://outlive.in/get-help-now</p>
+            </div>
+        </div>
+
+        <div class="ngo-card fade-in" data-url="https://www.mindsfoundation.org/" data-tags="Mental-Health">
+            <div class="ngo-content">
+                <h2>MINDS Foundation</h2>
+                <p><strong>Location:</strong> India</p>
+                <p><strong>Contact:</strong> 18005-477-200</p>
+            </div>
+        </div>
+
+        <div class="ngo-card fade-in" data-url="https://thebanyan.org/" data-tags="Mental-Health">
+            <div class="ngo-content">
+                <h2>The Banyan</h2>
+                <p><strong>Location:</strong> India</p>
+                <p><strong>Contact:</strong> +91 9677121099</p>
+            </div>
+        </div>
+
+        <div class="ngo-card fade-in" data-url="https://www.anjalimhro.org/" data-tags="Mental-Health">
+            <div class="ngo-content">
+                <h2>Anjali Mental Health Rights Organization</h2>
+                <p><strong>Location:</strong> India</p>
+                <p><strong>Contact:</strong> +913335392788</p>
+            </div>
+        </div>
+
+        <div class="ngo-card fade-in" data-url="https://www.thelivelovelaughfoundation.org/" data-tags="Mental-Health">
+            <div class="ngo-content">
+                <h2>The Live Love Laugh Foundation</h2>
+                <p><strong>Location:</strong> India</p>
+                <p><strong>Contact:</strong> https://www.thelivelovelaughfoundation.org/</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+   <script src="/MindCare/auth.js"></script>
+
+</body>
+
+</html>

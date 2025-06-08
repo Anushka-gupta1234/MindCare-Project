@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #36ae52;
+            text-decoration: underline;
+        }
+
+        /* Emergency Button Styling */
+        .emergency-btn {
+            padding: 10px 18px;
+            font-size: 16px;
+            color: white;
+            background-color: #d9534f;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .emergency-btn:hover {
+            background-color: #c9302c;
+        }
+
+        .img1 {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bg-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url(BackgroundImage.png) no-repeat center center/cover;
+            opacity: 0.5;
+            animation: fadeInBg 1s ease-in forwards;
+        }
+
+        /* Welcome text styling */
+        .welcome-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            margin-bottom: 30px;
+            animation: fadeInText 1s ease-in 1s forwards;
+        }
+
+        .para1 {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            margin-top: 20px;
+            transform: translate(-50%, -50%);
+            line-height: 1.5rem;
+            font-size: 1.2rem;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            margin-bottom: 20px;
+            animation: fadeInText 1s ease-in 1s forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #50C878;
+            text-decoration: none;
+            border-radius: 5px;
+            opacity: 0;
+            animation: fadeInText 1s ease-in 1s forwards;
+        }
+
+        .btn:hover {
+            background-color: #3a9f65;
+        }
+
+        /* Background fade-in effect */
+        @keyframes fadeInBg {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Text fade-in effect */
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="/MindCare/safehaven/safehaven.html">Safe Haven</a></li>
+                <li><a href="/MindCare/gardenofgrowth/garden.html">Garden of Growth</a></li>
+                <li><a href="/MindCare/blog/readblog.html">Blogs</a></li>
+                <li><a href="/MindCare/contact/feedback.html">Contact Us</a></li>
+            </ul>
+            <a href="/emergency.html" class="emergency-btn">🚨 Emergency Help</a>
+        </nav>
+    </header>
+
+    <section>
+        <div class="bg-container"></div>
+        <div class="welcome-text">Welcome to MindCare</div>
+        <p class="para1">At MindCare, we strive to provide you with the best resources to help ease your nerves, regulate your emotions, and maintain a balanced state of mind. Your mental well-being is our priority.</p>
+    </section>
+    <script src="/MindCare/auth.js"></script>
+</body>
+
+</html>

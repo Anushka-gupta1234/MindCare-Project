@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="readblog.css">
+    <script defer src="readblog.js"></script> <!-- Ensuring script loads after page -->
+</head>
+<body>
+
+    <!-- 🟢 Navbar -->
+    <nav class="navbar">
+        <h1><a href="../index.html" class="home-link">MindCare</a></h1>
+    </nav>
+
+    <!-- 🔵 Create Blog Section -->
+    <section class="create-blog-section">
+        <h2>Have something to share? Start writing your own blog!</h2>
+        <a href="../writeblog/writeblog.html" class="write-blog-btn">✍ Write a Blog</a>
+    </section>
+
+    <!-- 🔴 Blog Feed Section -->
+    <section class="blog-feed">
+        <div class="explore">
+            <h2>Explore Blogs</h2>
+            <input type="text" id="searchBar" placeholder="Search blogs..." oninput="filterBlogs()">
+        </div>
+        <div class="blog-container" id="blogContainer">
+            <p>Loading blogs...</p> <!-- Placeholder while blogs are being fetched -->
+        </div>
+    </section>
+       <script src="/MindCare/auth.js"></script>
+
+
+</body>
+</html>
+
+
+

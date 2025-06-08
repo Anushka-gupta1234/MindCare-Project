@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Help | MindCare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            color: #d9534f;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 500px;
+            border-left: 5px solid #d9534f;
+            text-align: left;
+        }
+
+        .contact-card h2 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .call-btn {
+            display: block;
+            padding: 12px;
+            font-size: 18px;
+            color: white;
+            background-color: #d9534f;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .call-btn:hover {
+            background-color: #c9302c;
+            transform: scale(1.05);
+        }
+
+        /* Floating Emergency Button */
+        .floating-emergency-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #d9534f;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .floating-emergency-btn:hover {
+            background-color: #c9302c;
+            transform: scale(1.1);
+        }
+
+        .floating-emergency-btn img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Emergency Help</h1>
+    <p>If you are in immediate danger or need urgent assistance, contact the following helplines:</p>
+
+    <!-- India Emergency Contacts -->
+    <div class="contact-card">
+        <h2>National Emergency Number (India)</h2>
+        <p>Police / Fire / Ambulance: <strong>112</strong></p>
+        <p>Available: 24/7</p>
+        <a href="tel:112" class="call-btn">📞 Call Now</a>
+    </div>
+
+    <div class="contact-card">
+        <h2>Suicide Prevention Helpline</h2>
+        <p>Samaritans: <strong>988</strong></p>
+        <p>AASRA: <strong>91-9820466726</strong></p>
+        <p>Available: 24/7</p>
+        <a href="tel:9820466726" class="call-btn">📞 Call Now</a>
+    </div>
+
+    <div class="contact-card">
+        <h2>Mental Health Support</h2>
+        <p>	Tele-Manas: <strong>14416</strong></p>
+        <p>KIRAN: <strong>	1800-5990019</strong></p>
+        <p>Available: 24/7</p>
+        <a href="tel:14416" class="call-btn">📞 Call Now</a>
+    </div>
+
+    <div class="contact-card">
+        <h2>Domestic Violence Support</h2>
+        <p>Women’s Helpline: <strong>181</strong></p>
+        <p>Available: 24/7</p>
+        <a href="tel:181" class="call-btn">📞 Call Now</a>
+    </div>
+
+    <div class="contact-card">
+        <h2>Child Helpline</h2>
+        <p>Childline India: <strong>1098</strong></p>
+        <p>Available: 24/7</p>
+        <a href="tel:1098" class="call-btn">📞 Call Now</a>
+    </div>
+
+</body>
+
+</html>

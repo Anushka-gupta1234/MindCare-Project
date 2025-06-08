@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+<style>
+        @import url(https://fonts.googleapis.com/css?family=Dancing+Script:400,700);
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: url(../BackgroundImage.png) no-repeat center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .video-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .container {
+        display: flex;
+        width: 50rem;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.9);
+        /* Slight transparency */
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+    }
+
+    .contact-info {
+        width: 40%;
+        padding-right: 2rem;
+        border-right: 2px solid #09c425;
+    }
+
+    .contact-info h2 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    .contact-info ol {
+        padding-left: 1rem;
+    }
+
+    .contact-info ol li {
+        margin-bottom: 5px;
+    }
+
+    .wrapper {
+        width: 60%;
+        text-align: center;
+        padding-left: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    textarea,
+    input {
+        width: 325px;
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #209f48;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+    textarea {
+        height: 9rem;
+        resize: none;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #258b2a;
+        outline: none;
+    }
+
+    button {
+        width: 200px;
+        padding: 12px;
+        background: #64bc68;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #419546;
+    }
+
+    .result-message {
+        font-size: 1.2rem;
+        color: #28a745;
+        margin-top: 15px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .sent .result-message {
+        opacity: 1;
+    }
+
+    .video-background {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        overflow: hidden;
+
+    }
+
+    .video-background video {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+
+    }
+
+    .wrapper {
+        width: 60%;
+        text-align: center;
+        padding-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        width: 50rem;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+        transform: translateX(5%);
+        /* Moves the flexbox slightly to the left */
+    }
+
+    .result-message {
+        font-size: 1.2rem;
+        color: #28a745;
+        margin-top: 15px;
+        opacity: 0;
+        visibility: hidden;
+        /* Ensure it starts hidden */
+        transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+    }
+
+    .sent .result-message {
+        opacity: 1;
+        visibility: visible;
+        /* Make it visible when the form is successfully submitted */
+    }
+</style>
+
+<body>
+
+<div class="wrapper centered">
+    <article class="letter">
+
+        <div class="container">
+            <div class="contact-info">
+                <h2>Our Contact Info</h2>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <br>
+                <p><strong>Email:</strong> contact@mindcare.com</p>
+                <br>
+                <p><strong>The Developers:</strong></p>
+                <ol>
+                    <li>Anushka Gupta</li>
+                    <li>Aashita Radhika</li>
+                    <li>Bhavya Sinha</li>
+                    <li>Gunjan Ruhal</li>
+                </ol>
+            </div>
+            <div class="wrapper">
+                <h1>Connect with Us</h1>
+                <p><input type="text" placeholder="Your name"></p>
+                <p><input type="email" placeholder="Your email"></p>
+                <p><textarea placeholder="Your feedback"></textarea></p>
+                <p><button id="sendLetter">Submit</button></p>
+            </div>
+        </div>
+
+    </article>
+    <div class="envelope front"></div>
+    <div class="envelope back"></div>
+</div>
+<script src="/MindCare/auth.js"></script>
+</body>
+<script>
+    document.getElementById("sendLetter").addEventListener("click", function (event) {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  // Get input fields
+  const nameInput = document.querySelector("input[type='text']");
+  const emailInput = document.querySelector("input[type='email']");
+  const messageInput = document.querySelector("textarea");
+
+  // Remove existing error messages
+  document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+  let isValid = true;
+
+  // Validate Name
+  if (nameInput.value.trim() === "") {
+    showError(nameInput, "Name is required");
+    isValid = false;
+  }
+
+  // Validate Email
+  if (emailInput.value.trim() === "") {
+    showError(emailInput, "Email is required");
+    isValid = false;
+  } else if (!validateEmail(emailInput.value)) {
+    showError(emailInput, "Enter a valid email");
+    isValid = false;
+  }
+
+  // Validate Message
+  if (messageInput.value.trim() === "") {
+    showError(messageInput, "Message cannot be empty");
+    isValid = false;
+  }
+
+  // If all inputs are valid, submit the form
+  if (isValid) {
+    const feedbackData = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      message: messageInput.value.trim()
+    };
+
+    // Send data to the server using fetch or Axios
+    fetch('/MindCare/feedback', {  // Replace with your actual endpoint
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(feedbackData)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Feedback submitted:', data);
+        document.body.classList.add("sent");
+        alert("🎉 Feedback submitted successfully!");
+        window.location.href = "/MindCare/index.html"; // Redirect to the blog list
+      })
+      .catch(error => {
+        console.error('Error submitting feedback:', error);
+      });
+  }
+});
+
+// Function to show error message
+function showError(inputElement, message) {
+  const error = document.createElement("p");
+  error.className = "error-message";
+  error.style.color = "red";
+  error.style.fontSize = "0.9rem";
+  error.style.margin = "5px 0";
+  error.innerText = message;
+  inputElement.parentNode.appendChild(error);
+}
+
+// Email validation function
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+  </script>
+  
+</html>

@@ -1,0 +1,127 @@
+/* 🌿 General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://i.pinimg.com/736x/09/94/99/099499aaf53e1580b4362aa6d977c8f8.jpg') no-repeat center center/cover fixed;
+}
+
+/* 🔵 Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0a8c0f;
+    color: white;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.home-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Keeps the original color */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+}
+
+.write-blog-btn {
+    text-decoration: none;
+    background-color: white;
+    color: #4CAF50;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.write-blog-btn:hover {
+    background-color: #ddd;
+}
+
+/* 🟡 Create Blog Section */
+.create-blog-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.create-blog-section h2 {
+    color: #333;
+}
+
+/* 🔴 Blog Feed Section */
+.blog-feed {
+    padding: 20px;
+    text-align: center;
+}
+.explore{
+    display: flex;
+    justify-content: space-between; /* Puts space between elements */
+    align-items: center; /* Aligns vertically in the center */
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.explore > h2{
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+}
+#searchBar{
+
+    padding: 8px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px; /* Adjust width as needed */
+
+}
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* 📝 Blog Card Styling */
+.blog-card {
+    background-color: white;
+    width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.blog-card h3 {
+    color: #333;
+}
+
+.blog-card p {
+    color: #666;
+    font-size: 14px;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
