@@ -1,19 +1,35 @@
+
+const Contact = require('../models/contact')
 const asyncWrapper = require('../middleware/async');
 
-// Example logic: save or handle contact form submission
 const handleContact = asyncWrapper(async (req, res) => {
     const { name, email, message } = req.body;
 
+    // Validate required fields
     if (!name || !email || !message) {
-        return res.status(400).json({ msg: 'Please fill in all fields' });
+        return res.status(400).json({ msg: 'Name, email, and message are required' });
     }
 
-    console.log("📩 Feedback received:", { name, email, message });
+    // Check if the email already exists (optional, if needed)
+    const existingContact = await Contact.findOne({ email, message });
+    if (existingContact) {
+        return res.status(400).json({ msg: 'Duplicate message detected' });
+    }
 
-    res.status(200).json({ msg: "Thank you for your feedback!" });
+
+    // Create a new contact entry
+    const newContact = new Contact({ name, email, message });
+
+    try {
+        await newContact.save();
+        console.log('Message saved successfully');
+        return res.status(201).json({ msg: 'Message received', contact: newContact });
+    } catch (error) {
+        console.error('Error saving message:', error.message);
+        return res.status(500).json({ msg: error.message });
+    }
 });
 
-// ✅ Make sure to export it!
 module.exports = {
     handleContact
 };
